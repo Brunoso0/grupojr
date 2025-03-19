@@ -1,0 +1,505 @@
+/* Global Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Home Container */
+.home-container {
+  display: flex;
+  justify-content: flex-end;
+  height: 100vh;
+  background: url('/public/img/moça.png') no-repeat center center/cover;
+}
+
+/* Content */
+.content {
+  display: flex;
+  max-width: 60%;
+  width: 100%;
+  margin-right: 150px;
+}
+
+/* Left Content - Text */
+.left-content {
+  flex: 1;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Ruberoid-bold', sans-serif;
+}
+
+.left-content h1 {
+  font-size: 6.5rem;
+  font-weight: bold;
+  line-height: 0.8;
+  margin: 0;
+}
+
+.left-content span {
+  font-size: 3.2rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.subtitle {
+  font-size: 5.5em;
+  margin-top: 20px;
+  font-family: 'Authentic', sans-serif;
+  color: #131212;
+}
+
+.first-h1 {
+  padding-left: 10px;
+}
+
+/* Right Content - Form */
+.right-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Form Box */
+.form-box {
+  background: rgba(0, 46, 85, 0.7);
+  padding: 30px;
+  border-radius: 2px;
+  border: 1px solid #FFF;
+  width: 85%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: white;
+}
+
+/* Input Fields */
+.form-box input[type="text"],
+.form-box input[type="email"],
+.form-box input[type="tel"] {
+  padding: 12px;
+  padding-left: 45px; /* Espaço para o ícone */
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  background-size: 20px;
+  transition: background-image 0.3s ease;
+}
+
+/* Custom Icons for Inputs */
+.form-box input[name="nome"] {
+  background-image: url('/public/img/user.png');
+}
+
+.form-box input[name="email"] {
+  background-image: url('/public/img/email.png');
+}
+
+.form-box input[name="telefone"] {
+  background-image: url('/public/img/telefonee.png');
+}
+
+.input-container input {
+  width: 85%;
+}
+
+/* Job Position */
+.vaga-title {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.vaga-options {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.vaga-options label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Upload Section */
+.upload-section {
+  display: flex;
+  gap: 10px;
+}
+
+.upload-box {
+  width: 48%;
+  padding: 15px;
+  text-align: center;
+  border: 2px dashed #fff;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.upload-box p {
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.upload-box img {
+  max-width: 50px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.upload-box:hover {
+  background: rgba(255, 255, 255, 0.062);
+}
+
+/* Privacy Section */
+.privacy {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.privacy a {
+  color: yellow;
+  text-decoration: underline;
+}
+
+/* Submit Button */
+.btn {
+  margin: 0 auto;
+}
+
+/* Custom Checkbox */
+.checkbox-btn {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-btn input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-btn label {
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  border: 2.5px solid #ffffff;
+  transition: .2s linear;
+}
+
+.checkbox-btn input:checked ~ .checkmark {
+  background-color: transparent;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  left: 50%;
+  top: 40%;
+  width: 10px;
+  height: 14px;
+  border: 2px solid #0ea021;
+  filter: drop-shadow(0px 0px 10px #0ea021);
+  border-width: 0 2.5px 2.5px 0;
+  transition: .2s linear;
+  transform: translate(-50%, -50%) rotate(-90deg) scale(0.2);
+}
+
+.checkbox-btn input:checked ~ .checkmark:after {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  animation: pulse 1s ease-in;
+}
+
+.checkbox-btn input:checked ~ .checkmark {
+  transform: rotate(45deg);
+  border: none;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1.6);
+  }
+}
+
+/* Email Hint */
+.email-hint {
+  font-size: 0.75rem;
+  color: #cdcdcd; /* Cinza discreto */
+  margin-top: 3px;
+  margin-bottom: 10px;
+}
+
+/* Sublinha */
+.sublinha {
+  line-height: 1px;
+  font-size: 0.6rem !important;
+}
+
+
+
+/* Responsividade geral */
+@media (max-width: 395px) {
+  .left-content {
+    margin-top: 0 !important;
+  }
+
+  .vaga-options {
+    width: 95%;
+  }
+}
+
+@media (max-width: 488px) {
+
+  body {
+    background-color: #006AA4 !important;
+  }
+  
+  .home-container {
+    background: url('/public/img/CELULAR.png') no-repeat center center/cover;
+    background-position: 30%;
+    height: 100vh;
+    justify-content: center;
+  }
+  
+  .content {
+    display: flex;
+    max-width: 90%;
+    width: 100%;
+    margin-right: 0;
+    margin-top: 400px;
+    flex-direction: column;
+}
+
+.left-content {
+  margin-top: 150px;
+}
+
+.left-content {
+  display: flex;
+  justify-content: center;
+  text-align: left;
+}
+
+.right-content {
+  padding-bottom: 50px;
+}
+
+.input-container {
+  width: 94%;
+}
+
+.email-hint {
+  font-size: 0.6rem;
+  color: #cdcdcd; /* Cinza discreto */
+  margin-top: 3px;
+  margin-bottom: 10px;
+}
+
+
+.left-content h1 {
+  font-size: calc(2.5rem + 1vw) !important;
+}
+
+.left-content span {
+  font-size: 2.3rem;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: calc(2.5rem + 1vw) !important;
+  margin-top: 0;
+  text-align: center;
+}
+
+.sublinha {
+  font-size: 0.8rem !important;
+  margin-top: 5px !important;
+  font-weight: 100;
+  line-height: normal;
+}
+
+.upload-box {
+  gap: 10px;
+}
+
+.upload-box img {
+  max-width: 30px;
+}
+}
+
+@media (min-width: 489px) and (max-width: 880px) {
+  body {
+    background-color: #006AA4 !important;
+  }
+  
+  .home-container {
+    background: url('/public/img/tablet.png') no-repeat center center/cover;
+    background-position: 30%;
+  }
+
+  .content {
+    display: flex;
+    max-width: 100%;
+    width: 100%;
+    margin-right: 0;
+    margin-top: 230px;
+    flex-direction: column;
+  }
+
+  .left-content {
+    margin-left: 350px;
+  }
+
+  .left-content h1 {
+    font-size: calc(2.5rem + 1vw) !important;
+  }
+
+  .subtitle {
+    font-size: calc(2.5rem + 1vw) !important;
+    margin-top: 0;
+  }
+
+  .right-content {
+    margin-bottom: 80px;
+  }
+
+  .form-box {
+    padding: 20px;
+    width: 75%;
+    max-width: 350px;
+    gap: 10px;
+  }
+
+
+  .upload-box {
+    width: 45%;
+    padding: 20px;
+  }
+
+  .upload-box img {
+    max-width: 30px;
+  }
+
+  .checkbox-btn label {
+    font-size: 12px;
+  }
+
+  .sublinha {
+    line-height: normal;
+  }
+
+  .privacy {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .home-container {
+    background: url('/public/img/moça.png') no-repeat center center/cover;
+    background-position: 30%;
+  }
+
+  .content {
+    max-width: 70%;
+    margin-right: 100px;
+  }
+  
+  .left-content {
+    margin-top: 150px;
+  }
+
+  .left-content h1 {
+    font-size: calc(2.5rem + 1vw) !important;
+  }
+
+  .left-content span {
+    font-size: 2.3rem;
+  }
+
+  .subtitle {
+    font-size: calc(3.5em + 1vw) !important;
+  }
+
+  .sublinha {
+    font-size: 0.8rem !important;
+    margin-top: 5px !important;
+    font-weight: 100;
+  }
+
+  .upload-box {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .left-content h1 {
+    font-size: 5rem;
+  }
+
+  .left-content span {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .left-content h1 {
+    font-size: 4rem;
+  }
+
+  .left-content span {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 810px) {
+  .left-content h1 {
+    font-size: 3.5rem;
+  }
+
+  .left-content span {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .left-content h1 {
+    font-size: 8rem;
+  }
+
+}
