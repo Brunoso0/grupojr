@@ -32,7 +32,7 @@ function App() {
 
           <Route path="/empresas" element={<Empresas />} />
         </Routes>
-        <Analytics /> Adicionando o componente Analytics
+        <Analytics /> {/* Adicionando o componente de Analytics */}
       </AuthProvider>
     </Router>
   );
