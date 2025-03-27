@@ -111,141 +111,147 @@ const Home = () => {
         </div>
 
         <div className='right-content'>
-          <form className='form-box' onSubmit={handleSubmit}>
-            <h2>Trabalhe <b>CONOSCO</b></h2>
+            <h1 id='selecao'>Seleção encerrada</h1>
+          <div className='form-container'>
+            <form className='form-box' onSubmit={handleSubmit}>
+              <h2>Trabalhe <b>CONOSCO</b></h2>
 
-            {/* Nome */}
-            <div className="input-container">
-              <input
-                type='text'
-                name='nome'
-                placeholder='Nome'
-                value={formData.nome}
-                onChange={handleChange}
-                required
-              />
-              <i className="icon-user"></i>
-            </div>
-
-            {/* Email */}
-            <div className="input-container">
-              <input
-                type='email'
-                name='email'
-                placeholder='E-mail'
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-              <p className="email-hint">Atenção: Apenas um e-mail por pessoa, por favor não repetir e-mail.</p>
-              <i className="icon-email"></i>
-            </div>
-
-            {/* Telefone */}
-            <div className="input-container input-tell">
-              <InputMask
-                mask="(99) 99999-9999"
-                type='tel'
-                name='telefone'
-                placeholder='Contato'
-                value={formData.telefone}
-                onChange={handleChange}
-                required
-              />
-              <i className="icon-phone"></i>
-            </div>
-
-            {/* Seleção de Vagas */}
-            <p className='vaga-title'>Vaga desejada (apenas uma)</p>
-            <div className='vaga-options'>
-              {vagas.length > 0 ? (
-                vagas.map(vaga => (
-                  <label key={vaga.id} className="checkbox-btn">
-                    <input
-                      id={`vaga-${vaga.id}`}
-                      type="checkbox"
-                      checked={formData.vaga_id === String(vaga.id)}
-                      onChange={() => setFormData(prevState => ({
-                        ...prevState,
-                        vaga_id: prevState.vaga_id === String(vaga.id) ? '' : String(vaga.id)
-                      }))}
-                    />
-                    <span className="checkmark" />
-                    {vaga.titulo}
-                  </label>
-                ))
-              ) : (
-                <p>Carregando vagas...</p>
-              )}
-            </div>
-
-
-            {/* Upload de Arquivos */}
-            <div className="upload-section">
-              {/* Upload de Foto */}
-              <div 
-                className="upload-box"
-                onDragOver={(e) => e.preventDefault()}
-                onDrop={(e) => handleDrop(e, setFoto, ['image/jpeg', 'image/png', 'image/webp'])}
-                onClick={() => document.getElementById('foto-input').click()}
-              >
-                <img src="/img/upload.png" alt="" />
-                <p>{foto ? foto.name : "Sua Foto"}</p>
-                <p className='sublinha'>{foto ? '' : "png, jpg, jpeg, webp..."}</p>
+              {/* Nome */}
+              <div className="input-container">
                 <input
-                  id="foto-input"
-                  type="file"
-                  accept="image/jpeg, image/png, image/webp"
-                  onChange={(e) => handleFileChange(e, setFoto)}
-                  style={{ display: 'none' }}
+                  type='text'
+                  name='nome'
+                  placeholder='Nome'
+                  value={formData.nome}
+                  onChange={handleChange}
+                  required
                 />
+                <i className="icon-user"></i>
               </div>
 
-              {/* Upload de Currículo */}
-              <div 
-                className="upload-box"
-                onDragOver={(e) => e.preventDefault()}
-                onDrop={(e) => handleDrop(e, setCurriculo, ['application/pdf'])}
-                onClick={() => document.getElementById('curriculo-input').click()}
-              >
-                <img src="/img/upload.png" alt="" />
-                <p>{curriculo ? curriculo.name : "Seu Curriculo."}</p>
-                <p className='sublinha'>{curriculo ? '' : "APENAS PDF"}</p>
+              {/* Email */}
+              <div className="input-container">
                 <input
-                  id="curriculo-input"
-                  type="file"
-                  accept="application/pdf"
-                  onChange={(e) => handleFileChange(e, setCurriculo)}
-                  style={{ display: 'none' }}
+                  type='email'
+                  name='email'
+                  placeholder='E-mail'
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
                 />
+                <p className="email-hint">Atenção: Apenas um e-mail por pessoa, por favor não repetir e-mail.</p>
+                <i className="icon-email"></i>
               </div>
-            </div>
 
-            {/* Checkbox de Privacidade */}
-            <div className='privacy'>
-              <label className='container'>
-                <input
-                  type='checkbox'
-                  checked={aceitouPrivacidade}
-                  onChange={() => setAceitouPrivacidade(!aceitouPrivacidade)}
+              {/* Telefone */}
+              <div className="input-container input-tell">
+                <InputMask
+                  mask="(99) 99999-9999"
+                  type='tel'
+                  name='telefone'
+                  placeholder='Contato'
+                  value={formData.telefone}
+                  onChange={handleChange}
+                  required
                 />
-                <div class="checkmark2"></div>
-              </label>
-              <span>Declaro que li e aceito os <span
-                onClick={() => setShowModal(true)}
-                className="cadastro-privacy-link"
-                style={{ color: 'orange', cursor: 'pointer', textDecoration: 'underline' }}
-              >Termos de Privacidade</span>
-              </span>
-            </div>
-
-
-              <div className='btn'>
-                <ButtonCadastro className='btn-cadastro' type="submit">Candidatar-se</ButtonCadastro>
+                <i className="icon-phone"></i>
               </div>
-          </form>
-        </div>
-      {showModal && (
+
+              {/* Seleção de Vagas */}
+              <p className='vaga-title'>Vaga desejada (apenas uma)</p>
+              <div className='vaga-options'>
+                {/* {vagas.length > 0 ? (
+                  vagas.map(vaga => (
+                    <label key={vaga.id} className="checkbox-btn">
+                      <input
+                        id={`vaga-${vaga.id}`}
+                        type="checkbox"
+                        checked={formData.vaga_id === String(vaga.id)}
+                        onChange={() => setFormData(prevState => ({
+                          ...prevState,
+                          vaga_id: prevState.vaga_id === String(vaga.id) ? '' : String(vaga.id)
+                        }))}
+                      />
+                      <span className="checkmark" />
+                      {vaga.titulo}
+                    </label>
+                  ))
+                ) : (
+                  <p>Carregando vagas...</p>
+                )} */}
+
+                <p>Processo seletivo encerrado</p>
+              </div>
+
+
+              {/* Upload de Arquivos */}
+              <div className="upload-section">
+                {/* Upload de Foto */}
+                <div 
+                  className="upload-box"
+                  onDragOver={(e) => e.preventDefault()}
+                  onDrop={(e) => handleDrop(e, setFoto, ['image/jpeg', 'image/png', 'image/webp'])}
+                  onClick={() => document.getElementById('foto-input').click()}
+                >
+                  <img src="/img/upload.png" alt="" />
+                  <p>{foto ? foto.name : "Sua Foto"}</p>
+                  <p className='sublinha'>{foto ? '' : "png, jpg, jpeg, webp..."}</p>
+                  <input
+                    id="foto-input"
+                    type="file"
+                    accept="image/jpeg, image/png, image/webp"
+                    onChange={(e) => handleFileChange(e, setFoto)}
+                    style={{ display: 'none' }}
+                  />
+                </div>
+
+                {/* Upload de Currículo */}
+                <div 
+                  className="upload-box"
+                  onDragOver={(e) => e.preventDefault()}
+                  onDrop={(e) => handleDrop(e, setCurriculo, ['application/pdf'])}
+                  onClick={() => document.getElementById('curriculo-input').click()}
+                >
+                  <img src="/img/upload.png" alt="" />
+                  <p>{curriculo ? curriculo.name : "Seu Curriculo."}</p>
+                  <p className='sublinha'>{curriculo ? '' : "APENAS PDF"}</p>
+                  <input
+                    id="curriculo-input"
+                    type="file"
+                    accept="application/pdf"
+                    onChange={(e) => handleFileChange(e, setCurriculo)}
+                    style={{ display: 'none' }}
+                  />
+                </div>
+              </div>
+
+              {/* Checkbox de Privacidade */}
+              <div className='privacy'>
+                <label className='container'>
+                  <input
+                    type='checkbox'
+                    checked={aceitouPrivacidade}
+                    onChange={() => setAceitouPrivacidade(!aceitouPrivacidade)}
+                  />
+                  <div class="checkmark2"></div>
+                </label>
+                <span>Declaro que li e aceito os <span
+                  onClick={() => setShowModal(true)}
+                  className="cadastro-privacy-link"
+                  style={{ color: 'orange', cursor: 'pointer', textDecoration: 'underline' }}
+                >Termos de Privacidade</span>
+                </span>
+              </div>
+
+
+                <div className='btn'>
+                  <ButtonCadastro className='btn-cadastro' type="submit">Candidatar-se</ButtonCadastro>
+                </div>
+            </form>
+          </div>
+          </div>
+          
+        {showModal && (
         <div className="privacidade-modal-overlay">
           <div className="privacidade-modal-content">
             <h2>Política de Privacidade</h2>
@@ -335,6 +341,9 @@ const Home = () => {
         </div>
       )}
       </div>
+
+
+
     </div>
   );
 };
