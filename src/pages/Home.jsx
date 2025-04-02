@@ -111,10 +111,11 @@ const Home = () => {
         </div>
 
         <div className='right-content'>
-            <h1 id='selecao'>Seleção encerrada</h1>
+            {/* <h1 id='selecao'>Seleção encerrada</h1> */}
           <div className='form-container'>
             <form className='form-box' onSubmit={handleSubmit}>
               <h2>Trabalhe <b>CONOSCO</b></h2>
+              <p>Antônio Gonçalves</p>
 
               {/* Nome */}
               <div className="input-container">
@@ -160,7 +161,7 @@ const Home = () => {
               {/* Seleção de Vagas */}
               <p className='vaga-title'>Vaga desejada (apenas uma)</p>
               <div className='vaga-options'>
-                {/* {vagas.length > 0 ? (
+                {vagas.length > 0 ? (
                   vagas.map(vaga => (
                     <label key={vaga.id} className="checkbox-btn">
                       <input
@@ -178,9 +179,9 @@ const Home = () => {
                   ))
                 ) : (
                   <p>Carregando vagas...</p>
-                )} */}
+                )}
 
-                <p>Processo seletivo encerrado</p>
+                {/* <p>Processo seletivo encerrado</p> */}
               </div>
 
 

@@ -15,9 +15,18 @@ body, html {
   background: url('/public/img/moça.png') no-repeat center center/cover;
 }
 
-.form-container {
+/* .form-container {
   filter: blur(12px);
   pointer-events: none;
+} */
+
+.form-container p {
+  margin-top: 0;
+}
+
+.form-container h2 {
+  margin-bottom: 0;
+  line-height: 0.1;
 }
 
 #selecao {
