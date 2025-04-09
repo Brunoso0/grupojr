@@ -115,7 +115,8 @@ const Home = () => {
           <div className='form-container'>
             <form className='form-box' onSubmit={handleSubmit}>
               <h2>Trabalhe <b>CONOSCO</b></h2>
-              <p>Antônio Gonçalves</p>
+              {/* <p>Antônio Gonçalves</p> */}
+              <p>Senhor do Bonfim</p>
 
               {/* Nome */}
               <div className="input-container">
@@ -234,7 +235,7 @@ const Home = () => {
                     checked={aceitouPrivacidade}
                     onChange={() => setAceitouPrivacidade(!aceitouPrivacidade)}
                   />
-                  <div class="checkmark2"></div>
+                  <div className="checkmark2"></div>
                 </label>
                 <span>Declaro que li e aceito os <span
                   onClick={() => setShowModal(true)}
