@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "https://api.jrcoffee.com.br:5000";
+const API_BASE_URL = "https://api.jrcoffee.com.br:5002";
 
 
 const api = axios.create({
