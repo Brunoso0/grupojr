@@ -141,7 +141,8 @@ body, html {
 }
 
 .vaga-options {
-  width: 80%;
+  width: 100%;
+  gap: 3rem;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -149,7 +150,7 @@ body, html {
 
 .vaga-options label {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
 }
 
